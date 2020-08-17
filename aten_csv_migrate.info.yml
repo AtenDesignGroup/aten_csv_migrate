@@ -1,6 +1,6 @@
 type: module
 name: Aten CSV Migration
-description: 'Aten CSV Migration example. Read more from <a href="https://atendesigngroup.com/articles/drupal-8-content-migrations-csv-or-spreadsheet-data">this data migration from CSV or spreadsheet tutorial.</a>'
+description: 'Aten CSV Migration example. Read more from <a href="https://atendesigngroup.com/articles/drupal-8-content-migrations-csv-spreadsheet">this data migration from CSV or spreadsheet tutorial.</a>'
 package: Migration
 core_version_requirement: ^8.7.7 || ^9
 dependencies:
