@@ -1,0 +1,18 @@
+id: aten_csv_migrate_node
+label: Aten CSV Migrate example node
+migration_tags:
+  - Aten Migrate CSV
+source:
+  plugin: csv
+  path: modules/custom/aten_csv_migrate/sources/aten_csv_migrate_items.csv
+  ids: [ID]
+process:
+  title: Title
+  body: Description
+  field_color: Color
+  field_weight: Weight
+  type:  
+    plugin: default_value
+    default_value: item
+destination:
+  plugin: entity:node

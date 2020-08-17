@@ -1,0 +1,9 @@
+<?php
+
+/**
+ * Implements hook_uninstall()
+ */
+function aten_csv_migrate_uninstall() {
+  Drupal::configFactory()->getEditable('migrate_plus.migration.aten_csv_migrate_node')->delete();
+  Drupal::configFactory()->getEditable('migrate_plus.migration.aten_complex_csv_example')->delete();
+}

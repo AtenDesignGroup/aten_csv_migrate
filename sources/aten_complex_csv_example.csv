@@ -1,0 +1,4 @@
+csv_id,csv_title,csv_entity_reference_node,csv_single_taxonomy_term,csv_latitude,csv_longitude,csv_multiple_taxonomy_term,"csv_link",csv_state
+1,Capitol Peak,Elk Mountains,White River,39.150166,-107.083221,Aspen|Snowmass|Carbondale,https://www.14ers.com/photos/peakmain.php?peak=Capitol+Peak,CO
+2,Mt. Elbert,Sawatch Range,San Isabel,39.118075,-106.445417,Leadville|Twin Lakes|Aspen,https://www.14ers.com/photos/peakmain.php?peak=Mt.+Elbert,CO
+3,Crestone Needle,Sangre de Cristo Range,San Isabel,37.964737,-105.576683,Crestone|Moffat|Hooper|Alamosa,https://www.14ers.com/photos/peakmain.php?peak=Crestone+Peak,CO

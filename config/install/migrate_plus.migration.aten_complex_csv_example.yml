@@ -1,0 +1,79 @@
+id: aten_complex_csv_example
+label: 'Aten Migrate Source CSV Complex Example'
+migration_tags:
+  - Aten Migrate CSV
+source:
+  plugin: csv
+  path: modules/custom/aten_csv_migrate/sources/aten_complex_csv_example.csv
+  ids:
+    - csv_id
+
+# Example Showing Process Plugins provided by Migrate Plus (migrate_plus)
+process:
+  title: csv_title
+  # Lookup Existing Node by Title.
+  field_single_entity_reference:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: csv_entity_reference_node
+    -
+      plugin: entity_lookup
+      entity_type: node
+      bundle: item
+      value_key: title
+
+  # Lookup and/or generate a single taxnomy term.
+  field_single_taxonomy_term:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: csv_single_taxonomy_term
+    -
+      plugin: entity_generate
+      entity_type: taxonomy_term
+      bundle: tags
+      value_key: name
+      bundle_key: vid
+
+  # Using Geofield Module for lat/lon.
+  field_coordinates:
+    plugin: geofield_latlon
+    source:
+      - csv_latitude
+      - csv_longitude
+
+  # Lookup and/or generate multiple taxnomy terms.
+  field_multiple_taxonomy_term:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: csv_multiple_taxonomy_term
+    -
+      plugin: explode
+      delimiter: '|'
+    -
+      plugin: callback
+      callable: trim
+    -
+      plugin: entity_generate
+      entity_type: taxonomy_term
+      bundle: tags
+      value_key: name
+      bundle_key: vid
+      
+  # Drupal Core Link Field (no title)
+  field_link/uri: csv_link
+  # Migrating into Address Field.
+  # Showing a hard coded country.
+  field_address/country_code:
+    -
+      plugin: default_value
+      default_value: US
+  field_address/administrative_area: csv_state
+  type:
+    plugin: default_value
+    default_value: complex_item
+destination:
+  plugin: 'entity:node'
+migration_dependencies: null
